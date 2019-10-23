@@ -19,7 +19,7 @@ public class JpaUserDetailService implements UserDetailsManager{
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
-		Optional<User> user = userRepository.findByUsernameOrEmail(username);
+		Optional<User> user = userRepository.findByUsername(username);
 		user.orElseThrow(() -> new UsernameNotFoundException("Not found: " + username));
 		return user.map(CustomUserDetails::new).get();
 	}

@@ -1,8 +1,0 @@
-/home/manish/eclipse-workspace/AuthServer/src/main/java/com/pramati/kart/config/AuthorizationServerConfig.java
-/home/manish/eclipse-workspace/AuthServer/src/main/java/com/pramati/kart/repository/UserRepository.java
-/home/manish/eclipse-workspace/AuthServer/src/main/java/com/pramati/kart/entities/KartUserDetails.java
-/home/manish/eclipse-workspace/AuthServer/src/main/java/com/pramati/kart/entities/User.java
-/home/manish/eclipse-workspace/AuthServer/src/main/java/com/pramati/kart/AuthServerApplication.java
-/home/manish/eclipse-workspace/AuthServer/src/main/java/com/pramati/kart/config/ProjectConfig.java
-/home/manish/eclipse-workspace/AuthServer/src/main/java/com/pramati/kart/security/JpaUserDetailService.java
-/home/manish/eclipse-workspace/AuthServer/src/main/java/com/pramati/kart/controller/LoginController.java

@@ -8,5 +8,5 @@ import com.pramati.kart.entities.User;
 
 public interface UserRepository extends JpaRepository<User, Integer>{
 
-	public  Optional<User>  findByUsernameOrEmail(String username);
+	public  Optional<User>  findByUsername(String username);
 }
