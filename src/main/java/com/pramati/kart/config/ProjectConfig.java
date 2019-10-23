@@ -44,11 +44,6 @@ public class ProjectConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	public UserDetailsService userDetailsService() {
 		return new JpaUserDetailService();
-//
-//		UserDetailsService  userDetailsService = new JdbcDaoImpl();
-//		((JdbcDaoImpl) userDetailsService).setDataSource(dataSource);
-//
-//		return userDetailsService;
 	}
 
 	@Override
@@ -57,16 +52,6 @@ public class ProjectConfig extends WebSecurityConfigurerAdapter{
 		.passwordEncoder(passwordEncoder());
 	}
 
-	@Override
-	protected void configure(HttpSecurity httpSecurity) throws Exception {
-		httpSecurity
-		.csrf().disable()
-		.authorizeRequests().antMatchers("*").hasAnyAuthority("ROLE_USER")
-		.anyRequest().authenticated()
-		.and().httpBasic();
-		httpSecurity.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-
-	}
 
 	@Bean
 	@Override
