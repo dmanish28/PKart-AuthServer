@@ -4,7 +4,9 @@ Centralized Authorization with JWT using Spring Boot 2
 This guide walks through the process to create a centralized authentication and authorization server with Spring Boot 2, a demo resource server will also be provided.
 
 Pre-req
+    
     JDK 1.8
+    MySQL
 
 Implementation Overview
 
