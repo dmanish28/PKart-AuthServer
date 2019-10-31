@@ -1,4 +1,4 @@
-package com.pramati.kart.entities;
+package com.pramati.kart.security;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -7,7 +7,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class CustomUserDetails implements UserDetails{
+import com.pramati.kart.entities.User;
+
+public class UserDetailsImpl implements UserDetails{
 
 	/**
 	 * 
@@ -20,7 +22,7 @@ public class CustomUserDetails implements UserDetails{
 	private int active;
 	private List<GrantedAuthority> authorities;
 
-	public CustomUserDetails(User user) {
+	public UserDetailsImpl(User user) {
 		this.username = user.getUsername();
 		this.password = user.getPassword();
 		this.email=user.getEmail();

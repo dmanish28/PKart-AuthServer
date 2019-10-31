@@ -17,6 +17,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.DelegatingPasswordEncoder;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.pramati.kart.security.JpaUserDetailService;
@@ -26,10 +27,6 @@ import com.pramati.kart.security.JpaUserDetailService;
 public class ProjectConfig extends WebSecurityConfigurerAdapter{
 
 
-	@Autowired
-	private DataSource dataSource;
-
-
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		Map<String, PasswordEncoder> encoders = new HashMap<>();
@@ -37,7 +34,8 @@ public class ProjectConfig extends WebSecurityConfigurerAdapter{
 
 		DelegatingPasswordEncoder delegatingPasswordEncoder = new DelegatingPasswordEncoder("bcrypt", encoders);
 		delegatingPasswordEncoder.setDefaultPasswordEncoderForMatches(new BCryptPasswordEncoder(10));
-		return delegatingPasswordEncoder;
+		//to be removed
+		return NoOpPasswordEncoder.getInstance();
 	}
 
 	@Bean
@@ -51,8 +49,7 @@ public class ProjectConfig extends WebSecurityConfigurerAdapter{
 		auth.userDetailsService(userDetailsService())
 		.passwordEncoder(passwordEncoder());
 	}
-
-
+	
 	@Bean
 	@Override
 	public AuthenticationManager authenticationManagerBean() throws Exception {

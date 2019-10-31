@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.provisioning.UserDetailsManager;
 
-import com.pramati.kart.entities.CustomUserDetails;
+import com.pramati.kart.security.UserDetailsImpl;
 import com.pramati.kart.entities.User;
 import com.pramati.kart.repository.UserRepository;
 
@@ -21,7 +21,7 @@ public class JpaUserDetailService implements UserDetailsManager{
 		// TODO Auto-generated method stub
 		Optional<User> user = userRepository.findByUsername(username);
 		user.orElseThrow(() -> new UsernameNotFoundException("Not found: " + username));
-		return user.map(CustomUserDetails::new).get();
+		return user.map(UserDetailsImpl::new).get();
 	}
 
 	@Override
